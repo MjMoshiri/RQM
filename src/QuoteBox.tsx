@@ -8,14 +8,14 @@ class QuoteBox extends React.Component<{q:Quote}>{
         this.setState({ quote: this.props.q });
     }
     render(): React.ReactNode {
-        return (<div className="QuoteBox">
-            <p>
+        return (<div id="quote-box" className="QuoteBox">
+            <div id="text">
                 {this.props.q.text}
-            </p>
+            </div>
             <br />
-            <p style={{textAlign: "right"}}>
+            <div id="author" style={{textAlign: "right"}}>
                 - {this.props.q.author}
-            </p>
+            </div>
         </div>)
     }
 }
