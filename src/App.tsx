@@ -1,14 +1,15 @@
-import './App.css';
+import './index.scss';
 import React from 'react';
+import QuoteBox from './QuoteBox';
 interface Quote {
   text: string
   author: string
 }
-class App extends React.Component<{},{ quotes: Quote[] }> {
-  constructor(props:any) {
+class App extends React.Component<{}, { quotes: Quote[] }> {
+  constructor(props: any) {
     super(props);
     this.state = {
-      quotes: [{text:"",author:""}]
+      quotes: [{ text: "", author: "" }]
     }
   }
   componentDidMount() {
@@ -16,21 +17,19 @@ class App extends React.Component<{},{ quotes: Quote[] }> {
     fetch("https://type.fit/api/quotes")
       .then(response => response.json())
       .then((q) => {
-        this.setState({ quotes: q} );
+        this.setState({ quotes: q });
       },
-        (error:Error) => {
+        (error: Error) => {
           alert(error);
         })
   }
   render() {
-    const num =Math.floor(Math.random() * this.state.quotes.length)
+    const randNum = Math.floor(Math.random() * this.state.quotes.length)
+    const randQuote = this.state.quotes[randNum]
+    console.log(randQuote)
     return (
-      <div>
-        <p>
-          {this.state.quotes[num].text}
-          <br/>
-          {this.state.quotes[num].author}
-        </p>
+      <div >
+        <QuoteBox q={randQuote}></QuoteBox>
       </div>
     );
   }
