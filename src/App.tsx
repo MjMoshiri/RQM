@@ -1,12 +1,14 @@
 import './App.css';
 import React from 'react';
-
-
-class App extends React.Component {
-  constructor(props) {
+interface Quote {
+  text: string
+  author: string
+}
+class App extends React.Component<{},{ quotes: Quote[] }> {
+  constructor(props:any) {
     super(props);
     this.state = {
-      q: [{text:"",author:""}]
+      quotes: [{text:"",author:""}]
     }
   }
   componentDidMount() {
@@ -14,26 +16,20 @@ class App extends React.Component {
     fetch("https://type.fit/api/quotes")
       .then(response => response.json())
       .then((q) => {
-        this.setState({ q: q.map(e=>this.jsObject(e)) });
+        this.setState({ quotes: q} );
       },
-        (error) => {
+        (error:Error) => {
           alert(error);
         })
   }
-  jsObject(e) {
-    return {
-      text: e.text,
-      author: e.author
-    }
-  }
   render() {
-    const num =Math.floor(Math.random() * this.state.q.length)
+    const num =Math.floor(Math.random() * this.state.quotes.length)
     return (
       <div>
         <p>
-          {this.state.q[num].text}
+          {this.state.quotes[num].text}
           <br/>
-          {this.state.q[num].author}
+          {this.state.quotes[num].author}
         </p>
       </div>
     );
