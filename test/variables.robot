@@ -1,5 +1,5 @@
 *** Variables ***  
-${BROWSER}        chrome
+${BROWSER}       Chrome
 ${URL}    http://localhost:3000/
 ${TITLE}      RQM
 ${QBoxId}    quote-box

@@ -5,9 +5,10 @@ Resource          variables.robot
 
 *** Keywords ***
 
-Open Browser To Page
+Load Page
     Open Browser    ${URL}   ${BROWSER}
     Maximize Browser Window
+    Sleep  3s
 
 Page Should Be Open
     Title Should Be    ${TITLE} 

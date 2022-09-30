@@ -2,8 +2,9 @@
 Library           SeleniumLibrary
 Resource     variables.robot
 Resource  resource.robot
-
-*** Keywords ***
+Suite Setup  Load Page
+Suite Teardown  Close Browser
+*** Test Cases ***
 Quote Box Exists
     Page Should Contain Element      ${QBoxId} 
 
@@ -24,7 +25,8 @@ Quote Author's Name is Not Empty Exists
 
 New Quote Button Exists Text
     Page Should Contain Element 
-    ...  //div/*[@id="${AuthorId}"]
+    ...  //div/*[@id="${NewQuoteId}"]
+
 New Quote Button Click Changes The Quote Text
     ${OldQuote} =  Get Quote Text
     Click New Quote Button
@@ -36,11 +38,11 @@ Tweet Quotes Exists
     ...  //div/a[@id="${TweetQuoteId}"]
 
 Tweet Quote Works
-    Element Attribute Value Should Be
-    ...  //div/a[@id="${TweetQuoteId}"]  href  ${TweeterLink}
+    ${href} =  Get Element Attribute
+    ...  //div/a[@id="${TweetQuoteId}"]  href  
+    Should Contain  ${href}  ${TweeterLink}
 
 
-    
 
 
 
