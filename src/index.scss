@@ -1,5 +1,30 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 .QuoteBox {
-    @extend .position-absolute, .top-50 , .start-50 ,.translate-middle;
+    border-radius: 10px;
+    padding: 1%;
+    border-color: black;
+    border-style: solid;
+    @extend .position-absolute, .top-50, .start-50, .translate-middle, .container ,.col-8;
+}
+.TextBox{
+    @extend .h-75;
+}
+.NewQuote {
+    @extend .btn, .position-absolute, .col-sm;
+    background-color: cadetblue;
+    right: 1%;
+    border-color: aqua;
+    &:hover {
+        background-color: blueviolet !important;
+    }
+}
+
+.Tweet {
+    @extend .btn;
+    background-color: cadetblue;
+    border-color: aqua;
+    &:hover {
+        background-color: blueviolet !important;
+    }
 }
