@@ -1,20 +1,24 @@
 @import "../node_modules/bootstrap/scss/bootstrap";
 
+body {background-color: #78e7c6;}
+
+
 .QuoteBox {
+    background-color: white;
     border-radius: 10px;
     padding: 1%;
     border-color: black;
     border-style: solid;
-    @extend .position-absolute, .top-50, .start-50, .translate-middle, .container ,.col-8;
+    @extend .position-absolute, .top-50, .start-50, .translate-middle, .container ,.col-6;
 }
 .TextBox{
     @extend .h-75;
 }
 .NewQuote {
     @extend .btn, .position-absolute, .col-sm;
-    background-color: cadetblue;
+    background-color: rgb(65, 190, 194);
     right: 1%;
-    border-color: aqua;
+    border-color: rgb(68, 80, 184);
     &:hover {
         background-color: blueviolet !important;
     }
@@ -22,8 +26,8 @@
 
 .Tweet {
     @extend .btn;
-    background-color: cadetblue;
-    border-color: aqua;
+    background-color: rgb(65, 190, 194);
+    border-color: rgb(68, 80, 184);
     &:hover {
         background-color: blueviolet !important;
     }
